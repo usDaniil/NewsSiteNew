@@ -1,0 +1,5 @@
+{
+  "apiHosts": {
+    "base": "loacalhost:3000"
+  }
+}
