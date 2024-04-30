@@ -1,5 +1,6 @@
-import { create } from "zustand"
-import { User } from "../dto"
+import { create } from 'zustand'
+
+import { User } from '../dto'
 
 interface State  {
     token?: string
@@ -10,13 +11,15 @@ interface Store extends State {
     api: {
 setToken: (token?:string) => void
 setUser: (user: User | null) => void
+exit: () => void
 }
 }
 
-export const useAuth = create<Store>((setState, getStage)=> ({
-    user: null,
-   api: {
-    setUser: (user)=> setState(() => ({user})),
-    setToken: (token?:string) => setState({token}) 
-   } 
+export const useAuth = create<Store>((setState)=> ({
+  user: null,
+  api: {
+    setUser: (user)=> setState(() => ({ user })),
+    setToken: (token?:string) => setState({ token }), 
+    exit: () => setState({ user: null, token: undefined })
+  } 
 }))

@@ -5,12 +5,12 @@ export interface RegisterDto {
 }
 
 export interface User {
-    "id": number,
-        "login": string,
-        "email": string,
-        "updatedAt": Date
-        "createdAt": Date
-        "avatarPath": null | string
+    'id': number,
+        'login': string,
+        'email': string,
+        'updatedAt': Date
+        'createdAt': Date
+        'avatarPath': null | string
 }
 export interface RegisterAnswerDto{
     accessToken: string

@@ -1,5 +1,7 @@
 import axios, { AxiosError } from 'axios'
-import { UseMutationResult, UseQueryResult, MutationCache, QueryCache, QueryClient } from 'react-query'
+import {
+  UseMutationResult, UseQueryResult, MutationCache, QueryCache, QueryClient 
+} from 'react-query'
 
 export type UseQuery<T> = UseQueryResult<T, Error>
 export type UseMutate<TVariables, TData = unknown, TError = AxiosError, TContext = unknown> = UseMutationResult<
@@ -28,11 +30,11 @@ export const queryClient = new QueryClient({
   queryCache: new QueryCache({
     onError: (error, query) => {
       onError(error, query.meta as QueryMeta)
-    },
+    }
   }),
   mutationCache: new MutationCache({
     onError(error, _1, _2, mutation) {
       onError(error, mutation.meta as QueryMeta)
-    },
-  }),
+    }
+  })
 })

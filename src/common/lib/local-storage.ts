@@ -2,24 +2,24 @@ import * as locales from '../../locales/en.json'
 
 export const readTokenFromLS = () => {
   try {
-    return localStorage.getItem('token');
+    return localStorage.getItem('token')
   } catch {
-    return null;
+    return null
   }
-};
+}
 
 export const writeTokenFromLS = (token: string) => {
   try {
-    localStorage.setItem('', token);
+    localStorage.setItem('', token)
   } catch {
-    return locales.TOKEN_ERROR_WR_LS;
+    return locales.TOKEN_ERROR_WR_LS
   }
-};
+}
 
 export const removeTokenFromLS = () => {
   try {
-    localStorage.removeItem('');
+    localStorage.removeItem('')
   } catch {
-    return locales.TOKEN_ERROR_RM_LS;
+    return locales.TOKEN_ERROR_RM_LS
   }
-};
+}

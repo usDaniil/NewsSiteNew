@@ -1,5 +1,6 @@
-import { create } from "zustand"
-import { News } from "./dto"
+import { create } from 'zustand'
+
+import { News } from './dto'
 
 interface State  {
     news?: News[]
@@ -11,8 +12,4 @@ setNews: (news?:News[]) => void
 }
 }
 
-export const newsStore = create<Store>((setState, getStage)=> ({
-   api: {
-    setNews: (news) => setState({news}) 
-   } 
-}))
+export const newsStore = create<Store>((setState)=> ({ api: { setNews: (news) => setState({ news }) } }))
