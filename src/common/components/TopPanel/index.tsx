@@ -1,8 +1,7 @@
+import SearchIcon from '@mui/icons-material/Search'
 import {
   AppBar, Toolbar, Typography, Button, InputBase, Divider, IconButton, Paper, Box, Menu, MenuItem 
 } from '@mui/material'
-import { FC } from 'react'
-import SearchIcon from '@mui/icons-material/Search'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -11,6 +10,7 @@ import { useAuth } from '../../store/auth'
 
 import { LoginModal } from './modals/LoginModal'
 import { RegisterModal } from './modals/RegisterModal'
+import type { FC } from 'react'
 
 
 interface Props {

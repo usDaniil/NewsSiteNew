@@ -2,7 +2,7 @@ export interface News {
     id: string
     header: string
     userId: string
-    imagePath: string
+    image: Blob
     text: string
     createdAt: string
     updatedAt: string

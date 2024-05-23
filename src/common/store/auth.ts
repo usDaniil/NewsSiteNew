@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-import { User } from '../dto'
+import type { User } from '../dto'
 
 interface State  {
     token?: string

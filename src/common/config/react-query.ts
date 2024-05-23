@@ -1,7 +1,7 @@
-import axios, { AxiosError } from 'axios'
-import {
-  UseMutationResult, UseQueryResult, MutationCache, QueryCache, QueryClient 
-} from 'react-query'
+import axios from 'axios'
+import { MutationCache, QueryCache, QueryClient } from 'react-query'
+import type { AxiosError } from 'axios'
+import type { UseMutationResult, UseQueryResult } from 'react-query'
 
 export type UseQuery<T> = UseQueryResult<T, Error>
 export type UseMutate<TVariables, TData = unknown, TError = AxiosError, TContext = unknown> = UseMutationResult<

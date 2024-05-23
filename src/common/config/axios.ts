@@ -1,6 +1,7 @@
-import axios, { AxiosResponse } from 'axios'
+import axios from 'axios'
 
 import { readTokenFromLS } from '../lib/local-storage'
+import type { AxiosResponse } from 'axios'
 
 
 

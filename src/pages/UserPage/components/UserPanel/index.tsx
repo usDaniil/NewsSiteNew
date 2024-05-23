@@ -2,12 +2,13 @@ import { Image } from '@mui/icons-material'
 import {
   Box, Button, Paper, Typography 
 } from '@mui/material'
-import { FC, useEffect, useState } from 'react'
 import { format } from 'date-fns'
+import { useEffect, useState } from 'react'
 
 import { useAuth } from '../../../../common/store/auth'
 import { useGetUser } from '../../../../modules/user/query'
-import { User } from '../../../../common/dto'
+import type { User } from '../../../../common/dto'
+import type { FC } from 'react'
 
 interface Props {
     id: string
@@ -39,7 +40,7 @@ export const UserPanel:FC<Props> = ({ id }) => {
           <Typography variant="h5">Дата регистрации</Typography>
           <Box display="flex" gap="2rem">
             <Typography>{user?.createdAt ? format(user?.createdAt, 'dd.MM.yyyy'): ''}</Typography> 
-           { authUser?.id === user?.id && <Button style={{ backgroundColor: '#03ADE3' }}>Редактировать</Button>}
+            { authUser?.id === user?.id && <Button style={{ backgroundColor: '#03ADE3' }}>Редактировать</Button>}
           </Box>
         </Box>
       </Box>

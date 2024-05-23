@@ -1,36 +1,36 @@
 import {
   Box, Button, Card, CardActions, CardContent, CardMedia, Typography 
 } from '@mui/material'
-import { FC } from 'react'
+import type { FC } from 'react'
 
-// interface Props {
-//     image: string;
-//     title: string;
-//     description: string;
-//     author: string;
-//     date: string;
-// }
-export const NewsCard:FC = () => {
+interface Props {
+    image?: Blob;
+    title?: string;
+    description?: string;
+    author?: string;
+    date?: string;
+}
+export const NewsCard:FC<Props> = ({ title, description, author, date, image }) => {
+  const imageSrc = image ? URL.createObjectURL(image) : ''
   return (
     <Box>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345, width: 345 }}>
         <CardMedia
           sx={{ height: 140 }}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="green iguana"
+          image={imageSrc}
+          title={title}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-          Lizard
+            {title}
           </Typography>
-          <Typography variant="caption">20.03.2022</Typography>
+          <Typography variant="caption">{date}</Typography>
           <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+            {description}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Автор</Button>
+          <Button size="small">{author ?? 'Автор'}</Button>
           <Button size="small">Читать</Button>
         </CardActions>
       </Card>

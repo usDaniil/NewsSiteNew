@@ -1,14 +1,12 @@
 import { Box } from '@mui/material'
-import { FC } from 'react'
 
 import { TopPanel } from '../../common/components/TopPanel'
 
 import { MainNews } from './components/MainNews'
+import type { FC } from 'react'
 
-export const NeswPage:FC = () => {
-  return (
-    <Box flexDirection="column">
-      <TopPanel />
-      <MainNews/>
-    </Box>)
-}
+export const NeswPage:FC = () => (
+  <Box flexDirection="column">
+    <TopPanel />
+    <MainNews/>
+  </Box>)

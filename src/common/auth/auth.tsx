@@ -1,8 +1,9 @@
-import { FC, useEffect } from 'react'
+import { useEffect } from 'react'
 
 import baseApiService from '../config/axios'
 import { useAuth } from '../store/auth'
-import { User } from '../dto'
+import type { User } from '../dto'
+import type { FC } from 'react'
 
 interface Props {
     children: JSX.Element

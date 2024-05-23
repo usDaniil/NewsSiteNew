@@ -1,10 +1,6 @@
 
 import baseApiService from '../../common/config/axios'
 
-import { News } from './dto'
+import type { News } from './dto'
 
-export const Service = {
-  getNews: (): Promise<News[]> => {
-    return baseApiService.get('news')
-  }
-}
+export const Service = { getNews: (): Promise<News[]> => baseApiService.get('news') }

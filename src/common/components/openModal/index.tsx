@@ -1,5 +1,6 @@
-import { ComponentType, Suspense } from 'react'
+import { Suspense } from 'react'
 import { create } from 'zustand'
+import type { ComponentType } from 'react'
 
 type OpenModalAction = <T>(component:ComponentType<T & { onClose: () => void }>, props: T) => void
 

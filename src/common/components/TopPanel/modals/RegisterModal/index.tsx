@@ -1,12 +1,13 @@
+import { LoadingButton } from '@mui/lab'
 import {
   Box, Dialog, TextField, Typography 
 } from '@mui/material'
-import {  FC, useState } from 'react'
-import { LoadingButton } from '@mui/lab'
+import { useState } from 'react'
 
 import { useRegister } from '../../../../service/query'
-import { RegisterAnswerDto } from '../../../../dto'
 import { useAuth } from '../../../../store/auth'
+import type { RegisterAnswerDto } from '../../../../dto'
+import type {  FC } from 'react'
 
 interface Props {
     onClose: () => void

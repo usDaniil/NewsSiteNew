@@ -1,11 +1,9 @@
 import { useMutation } from 'react-query'
 
-import { UseMutate } from '../config/react-query'
-import { RegisterDto } from '../dto'
-
 import { Service } from './service'
+import type { UseMutate } from '../config/react-query'
+import type { RegisterDto } from '../dto'
 
 
-export const useRegister = (): UseMutate<RegisterDto> => {
-  return useMutation(Service.register)
-}
+
+export const useRegister = (): UseMutate<RegisterDto> => useMutation(Service.register)

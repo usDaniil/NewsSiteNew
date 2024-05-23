@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-import { News } from './dto'
+import type { News } from './dto'
 
 interface State  {
     news?: News[]

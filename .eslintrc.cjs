@@ -11,10 +11,14 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  plugins: ['react-refresh', 'react', 'import'],
+  plugins: ['react-refresh', 'react', 'import', 'autofix'],
   rules: {
     'react-refresh/only-export-components': 'off',
     'object-curly-spacing': ['error', 'always'],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      { 'prefer': 'type-imports' }   
+    ],
     quotes: ['error', 'single'],
     'object-curly-newline': [
       'error',
@@ -29,6 +33,8 @@ module.exports = {
         ExportDeclaration: { multiline: true, minProperties: 4 }
       }
     ],
+    'react/self-closing-comp': ['error', { 'component': true, 'html': true }],
+    'arrow-body-style': ['error', 'as-needed'],
     'react/jsx-curly-spacing': ['error', 'never'],
     'import/order': [
       'error',
@@ -49,6 +55,29 @@ module.exports = {
     semi: ['error', 'never'],
     'comma-dangle': ['error', 'never'],
     'import/newline-after-import': ['error', { count: 1 }],
-    'keyword-spacing': ['error']
+    'keyword-spacing': ['error'],
+    'max-len': ['error', { 'code': 80 }],
+    'import/order': [
+      'error',
+      {        
+        'groups': [
+          'builtin',
+          'external',
+          'parent',
+          'sibling',
+          'index',
+          'object',   
+          'type'
+        ],
+        'pathGroups': [
+          {
+            'pattern': '@/**/**',
+            'group': 'parent',
+            'position': 'before'
+          }
+        ],
+        'alphabetize': { 'order': 'asc' }
+      }
+    ]
   }
-};
+}

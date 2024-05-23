@@ -1,9 +1,9 @@
-import { createBrowserRouter } from 'react-router-dom'
 import { Typography } from '@mui/material'
+import { createBrowserRouter } from 'react-router-dom'
 
 import { NeswPage } from '../../pages/NewsPage'
-import { UserPage } from '../../pages/UserPage'
 import { PostPage } from '../../pages/PostPage/inex'
+import { UserPage } from '../../pages/UserPage'
 
 export const routes = createBrowserRouter([
 
@@ -13,5 +13,5 @@ export const routes = createBrowserRouter([
     element: <NeswPage />
   },
   { path: '/user/:id', element: <UserPage/> },
-  {path: '/post/:id', element: <PostPage/>},
+  { path: '/post/:id', element: <PostPage/> },
   { path: '*', element: <Typography>Страница не найдена!</Typography> }])
