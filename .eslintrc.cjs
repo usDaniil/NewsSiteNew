@@ -17,7 +17,7 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     '@typescript-eslint/consistent-type-imports': [
       'error',
-      { 'prefer': 'type-imports' }   
+      { prefer: 'type-imports' }
     ],
     quotes: ['error', 'single'],
     'object-curly-newline': [
@@ -33,7 +33,7 @@ module.exports = {
         ExportDeclaration: { multiline: true, minProperties: 4 }
       }
     ],
-    'react/self-closing-comp': ['error', { 'component': true, 'html': true }],
+    'react/self-closing-comp': ['error', { component: true, html: true }],
     'arrow-body-style': ['error', 'as-needed'],
     'react/jsx-curly-spacing': ['error', 'never'],
     'import/order': [
@@ -56,27 +56,26 @@ module.exports = {
     'comma-dangle': ['error', 'never'],
     'import/newline-after-import': ['error', { count: 1 }],
     'keyword-spacing': ['error'],
-    'max-len': ['error', { 'code': 80 }],
     'import/order': [
       'error',
-      {        
-        'groups': [
+      {
+        groups: [
           'builtin',
           'external',
           'parent',
           'sibling',
           'index',
-          'object',   
+          'object',
           'type'
         ],
-        'pathGroups': [
+        pathGroups: [
           {
-            'pattern': '@/**/**',
-            'group': 'parent',
-            'position': 'before'
+            pattern: '@/**/**',
+            group: 'parent',
+            position: 'before'
           }
         ],
-        'alphabetize': { 'order': 'asc' }
+        alphabetize: { order: 'asc' }
       }
     ]
   }

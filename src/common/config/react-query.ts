@@ -3,16 +3,16 @@ import { MutationCache, QueryCache, QueryClient } from 'react-query'
 import type { AxiosError } from 'axios'
 import type { UseMutationResult, UseQueryResult } from 'react-query'
 
-export type UseQuery<T> = UseQueryResult<T, Error>
-export type UseMutate<TVariables, TData = unknown, TError = AxiosError, TContext = unknown> = UseMutationResult<
-  TData,
-  TError,
+export type UseQuery<T> = UseQueryResult<T, Error>;
+export type UseMutate<
   TVariables,
-  TContext
->
+  TData = unknown,
+  TError = AxiosError,
+  TContext = unknown
+> = UseMutationResult<TData, TError, TVariables, TContext>;
 
 interface QueryMeta {
-  suppressErrorMessage?: boolean
+  suppressErrorMessage?: boolean;
 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const onError = (error: any, meta?: QueryMeta) => {

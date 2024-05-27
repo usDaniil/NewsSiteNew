@@ -6,16 +6,15 @@ import type { User } from '../dto'
 import type { FC } from 'react'
 
 interface Props {
-    children: JSX.Element
+  children: JSX.Element;
 }
 
-export const Auth:FC<Props> =({ children }) => 
-{ const { api } =useAuth()
-  useEffect(() =>{
-    baseApiService.get('auth/whoami').then((data) =>{
-      console.log(data)
+export const Auth: FC<Props> = ({ children }) => {
+  const { api } = useAuth()
+  useEffect(() => {
+    baseApiService.get('auth/whoami').then((data) => {
       api.setUser(data as unknown as User)
     })
   }, [])
-  return (children)
+  return children
 }

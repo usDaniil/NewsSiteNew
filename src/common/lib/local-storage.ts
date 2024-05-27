@@ -18,7 +18,7 @@ export const writeTokenFromLS = (token: string) => {
 
 export const removeTokenFromLS = () => {
   try {
-    localStorage.removeItem('')
+    localStorage.removeItem('token')
   } catch {
     return locales.TOKEN_ERROR_RM_LS
   }
