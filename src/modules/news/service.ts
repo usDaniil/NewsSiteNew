@@ -11,6 +11,9 @@ export const Service = {
     form.append('text', data.text)
     form.append('image', data.image)
     form.append('userId', data.userId)
-    return baseApiService.post('news', form)}
+    return baseApiService.post('news', form)},
+
+  getNewsById: (id: string): Promise<News> => baseApiService.get(`news/${id}`)
 
 }
+

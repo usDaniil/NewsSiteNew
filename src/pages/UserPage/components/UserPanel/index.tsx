@@ -3,7 +3,7 @@ import {
   Box, Button, Paper, Typography 
 } from '@mui/material'
 import { format } from 'date-fns'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { ImageUpload } from '../../../../common/components/ImageUpload'
 import { useAuth } from '../../../../common/store/auth'
@@ -12,12 +12,12 @@ import type { User } from '../../../../common/dto'
 import type { ChangeEvent, FC } from 'react'
 
 interface Props {
-  id: string;
+  id?: string;
 }
 export const UserPanel: FC<Props> = ({ id }) => {
   const [user, setUser] = useState<User | null | undefined>(null)
   const { user: authUser } = useAuth()
-  const { data, refetch } = useGetUser(id, false)
+  const { data, refetch } = useGetUser(id)
 
   const putUser = usePutUser()
 
@@ -36,7 +36,7 @@ export const UserPanel: FC<Props> = ({ id }) => {
     }
     refetch()
     setUser(data)
-  }, [])
+  }, [id])
 
   useEffect(() => setUser(data), [data])
 

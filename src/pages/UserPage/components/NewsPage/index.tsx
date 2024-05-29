@@ -80,6 +80,7 @@ export const NewsPage: FC<Props> = ({ id }) => {
               date={value.createdAt}
               imagePath={value.imagePath}
               userId={value.user.id}
+              id={value.id}
             />)}
         </Stack>
       </Paper>

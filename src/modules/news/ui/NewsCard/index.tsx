@@ -18,6 +18,7 @@ interface Props {
   author?: string;
   date?: string;
   userId?: string
+  id?: string
 }
 
 export const NewsCard: FC<Props> = ({
@@ -26,7 +27,8 @@ export const NewsCard: FC<Props> = ({
   author,
   date,
   imagePath,
-  userId
+  userId,
+  id
 }) => {
   const navigate = useNavigate()
 
@@ -46,7 +48,7 @@ export const NewsCard: FC<Props> = ({
         </CardContent>
         <CardActions>
           <Button size="small" onClick={clickNavigateToUser}>{author ?? 'Автор'}</Button>
-          <Button size="small">Читать</Button>
+          <Button onClick={() => navigate('/post/' + id ?? '')} size="small">Читать</Button>
         </CardActions>
       </Card>
     </Box>

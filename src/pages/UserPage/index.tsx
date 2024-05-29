@@ -13,7 +13,7 @@ export const UserPage: FC = () => {
     <>
       <TopPanel hiddenSearc />
       <Box>
-        <UserPanel id={id ?? ''} />
+        <UserPanel id={id} />
         <Divider style={{ backgroundColor: '#fff', height: '2px' }} />
         <NewsPage id={id ?? ''} />
       </Box>

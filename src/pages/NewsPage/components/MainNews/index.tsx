@@ -27,6 +27,7 @@ export const MainNews: FC = () => {
               date={value.createdAt}
               imagePath={value.imagePath}
               userId={value.user.id}
+              id={value.id}
             />
           ))}
         </Stack>
