@@ -73,6 +73,7 @@ export const NewsPage: FC<Props> = ({ id }) => {
             </Box>
           )}
           {news?.map((value) => 
+            String(value.user.id) === String(id) &&
             <NewsCard
               description={value.text}
               title={value.header}

@@ -17,7 +17,7 @@ export const PostPage: FC = () => {
       <TopPanel />
       <Box padding='4rem'>
         <Box
-          height="100vh"
+          height="100%"
           gap="1rem"
           flexDirection="column"
           style={{ backgroundColor: 'white', padding: '1rem', color: 'black' }}

@@ -38,11 +38,11 @@ export const NewsCard: FC<Props> = ({
       <Card sx={{ maxWidth: 345, width: 345, height: 343.91 }}>
         <CardMedia sx={{ height: 140 }} image={`${import.meta.env.VITE_APP_API_URL}file/${imagePath}`} title={title} />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography maxHeight={70} textOverflow='ellipsis' overflow='hidden'  gutterBottom variant="h5" component="div">
             {title}
           </Typography>
           <Typography variant="caption">{date && format(new Date(date), 'dd.MM.yyyy HH:mm')}</Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography maxWidth={200} maxHeight={20} textOverflow='ellipsis' overflow='hidden' variant="body2" color="text.secondary">
             {description}
           </Typography>
         </CardContent>

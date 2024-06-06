@@ -7,6 +7,7 @@ import {
   Typography
 } from '@mui/material'
 import { useState, type ChangeEvent, type FC } from 'react'
+import { useQueryClient } from 'react-query'
 import { ImageUpload } from '../../../../common/components/ImageUpload'
 import { useAuth } from '../../../../common/store/auth'
 import { useCreateNews } from '../../../../modules/news/query'
@@ -21,6 +22,7 @@ export const CreateNewsModal: FC<Props> = ({ open, onClose }) => {
   const [text, setText] = useState('')
   const { user } = useAuth()
   const create = useCreateNews()
+  const client = useQueryClient()
   const handleChangeImage = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const file = e.target.files[0]
@@ -32,6 +34,11 @@ export const CreateNewsModal: FC<Props> = ({ open, onClose }) => {
     if (image && header && text && user?.id) {
       create.mutate({
         image, header, text, userId: String(user?.id) 
+      }, {
+        onSuccess: () => {
+          client.invalidateQueries(['News'])
+          onClose()
+        } 
       }) 
     }
   }
