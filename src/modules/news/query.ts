@@ -24,3 +24,5 @@ export const useCreateNews = (): UseMutate<CreateNews> =>
   })
 
 export const useNewsById = (id: string):UseQuery<News> => useQuery(['NEWS_BY_ID'],() => Service.getNewsById(id))
+
+export const useRetelling = ():UseMutate<string> => useMutation(Service.retelling)
