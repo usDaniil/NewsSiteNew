@@ -1,16 +1,26 @@
-import { Box, Button, Typography } from '@mui/material'
+import ArticleIcon from '@mui/icons-material/Article'
+import {
+  Box, Button, Fab, Typography 
+} from '@mui/material'
+import { openModal } from 'common/components/openModal'
 import { format } from 'date-fns'
-import { useNewsById } from 'modules/news/query'
+import { useNewsById, useRetelling } from 'modules/news/query'
 import { useNavigate, useParams } from 'react-router-dom'
 import { TopPanel } from '../../common/components/TopPanel'
+import { RetellingModal } from './modals/RetellingModal'
 import type { FC } from 'react'
-
 
 export const PostPage: FC = () => {
   const { id } = useParams()
   const navigate = useNavigate()
+  const retelling = useRetelling()
   const { data, isLoading }  = useNewsById(id ?? '')
 
+  const handleRetelling = () => {
+
+    retelling.mutate(data?.text, { onSuccess: (data)=>openModal(RetellingModal, { text: data, isLoading: retelling.isLoading }) })
+    openModal(RetellingModal, { text: '', isLoading: true })
+  }
 
   return (
     <>
@@ -64,6 +74,13 @@ export const PostPage: FC = () => {
             {data?.text}
           </Typography>
         </Box>
+        <Fab 
+          style={{ position: 'fixed', bottom: '4rem', right: '5rem' }} 
+          color="primary" 
+          aria-label="add" 
+          onClick={handleRetelling} >
+          <ArticleIcon/></Fab>
+
       </Box>
     </>)
 }

@@ -1,3 +1,5 @@
+import axios from 'axios'
+import aiApiService from 'common/config/axiosAi'
 import baseApiService from '../../common/config/axios'
 
 import type { CreateNews, News } from './dto'
@@ -13,7 +15,9 @@ export const Service = {
     form.append('userId', data.userId)
     return baseApiService.post('news', form)},
 
-  getNewsById: (id: string): Promise<News> => baseApiService.get(`news/${id}`)
+  getNewsById: (id: string): Promise<News> => baseApiService.get(`news/${id}`),
+
+  retelling: (newsText: string): Promise<string> => baseApiService.post('/openai/opinion', { newsText  }),
 
 }
 
